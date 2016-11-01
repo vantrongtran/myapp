@@ -1,0 +1,34 @@
+<% provide :title, (t "list_words") %>
+<div class="row">
+  <h1><%= t ".List word" %></h1>
+  <div class="box-search">
+    <%= form_tag words_path, method: :get, id: "search-form" do %>
+      <div class="col-md-2">
+      <div class="fl">
+        <%= select_tag(:category_id, options_for_select(@categories
+          .collect{ |category| [category.name, category.id]},
+          params[:category_id]), include_blank: Settings.all,
+          class: "categories-search") %>
+      </div>
+      </div>
+      <div class="col-md-5">
+      <div class="a">
+      <% Settings.word_filter.each do |key, status| %>
+        <%= radio_button_tag :word_filter, status,
+          params[:word_filter] == status %>
+        <%= label_tag "page_word_filter", (t ".#{status}"),
+          class: "" %>
+      <% end %>
+      </div>
+      </div>
+
+      <div class="col-md-5" >
+        <div class="form-inline">
+          <%= text_field_tag :word_search, params[:search], class: "form-control" %>
+          <%= submit_tag "Search", class: "btn btn-primary btn-search"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= render "word" %>
+</div>

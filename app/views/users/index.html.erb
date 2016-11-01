@@ -1,0 +1,15 @@
+<% provide :title, t(".result") %>
+<h1><%= t(".result") %></h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+    <%= image_tag "user_icon.png", id: "avatar" %>
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

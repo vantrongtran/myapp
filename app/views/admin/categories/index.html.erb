@@ -1,0 +1,49 @@
+<% provide :title, (t ".allcategory") %>
+<h1><%= t ".allcategory" %></h1>
+<%= form_tag admin_categories_path, method: :get do %>
+  <div class="form-group row">
+    <div class="col-xs-8">
+      <div class="search">
+        <h4><%= t ".search" %></h4>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <%= text_field_tag :category_search, params[:search], class: "form-control" %>
+    </div>
+  </div>
+<% end %>
+<div>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".new-modal"><%= t "new" %></button>
+</div>
+</br>
+<table class="table table-hover bg-table ls-users">
+  <thead class="title_table">
+    <tr>
+      <th class="text-c"><%= t ".name" %></th>
+      <th class="text-c"><%= t ".description" %></th>
+      <th class="text-c"><%= t ".edit" %></th>
+      <th class="text-c"><%= t ".delete" %></th>
+    </tr>
+  </thead>
+  <tbody id ="result_search">
+    <% @categories.each.with_index do |category| %>
+      <tr id="category-<%= category.id %>">
+        <td class="text-c"><%= category.name %></td>
+        <td class="text-c"><%= category.description %></td>
+        <td>
+          <%= link_to t("edit"), edit_admin_category_path(category.id),
+        class: "btn btn-default glyphicon glyphicon-pencil" %>
+        </td>
+        <td class="text-c">
+            <button class = "danger btn btn-default glyphicon glyphicon-trash
+              delete-category"
+              onclick = "delCategory(<%= category.id %>)">
+            <%= t".delete"%>
+          </button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate %>
+<%= render "new" %>

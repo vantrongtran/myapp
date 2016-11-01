@@ -1,0 +1,51 @@
+<% provide :title, (t ".result") %>
+<div class="col-md-12" id="customer-order">
+  <div class="box">
+      <h2><%= t "result" %>&nbsp;
+        <span class="text-danger">
+          <%= @score %>/<%= Settings.words_lesson %>
+        </span>
+      </h2>
+    <hr>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t "word" %></th>
+            <th><%= t "word_content" %></th>
+            <th><%= t "your_answer" %></th>
+            <th><%= t "answer" %></th>
+            <th><%= t "result" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @results.each_with_index do |result, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= result.word.content %></td>
+              <td>
+                <% if result.answer %>
+                  <%= result.answer.content %>
+                <% end %>
+              </td>
+              <td>
+                <% result.word.answers.each do |answer| %>
+                  <%= answer.content if answer.is_correct %>
+                <% end %>
+              </td>
+              <td>
+                <% if result.answer.nil? || !result.answer.is_correct? %>
+                  <span class="glyphicon glyphicon-remove text-danger"></span>
+                <% else %>
+                  <span class="glyphicon glyphicon-ok text-success"></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <hr>
+      <%= link_to t("continue"), categories_path, class: "pull-right btn btn-primary"%>
+    </div>
+  </div>
+</div>

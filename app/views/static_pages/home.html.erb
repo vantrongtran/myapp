@@ -1,0 +1,24 @@
+<% provide :title, t(".home") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3><% t "activities" %></h3>
+      <%= render "shared/feed" %>
+    </div>
+  </div>
+<% else %>
+  <div class="center">
+    <div class="banner">
+      <h2><%= t ".content" %></h2>
+      <%= link_to t(".signup"), signup_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<li id="activity-<%= activity.id %>">
+  <%= image_tag "user_icon.png", class: "avatar" %>
+  <span class="user"><%= link_to activity.user.name, activity.user %></span>
+  <span class="content">
+    <%= load_activity activity %>
+    <% if (load_target activity).instance_of? User %>
+      <%= link_to (load_target activity).name, (load_target activity) %>
+    <% else %>
+      <%= t ".in_category" %>
+      <%= (load_target activity).category.name%>
+    <% end %>
+  </span>
+  <span class="timestamp">
+    <%= activity.created_at %>
+    <%= t ".ago" %>
+  </span>
+</li>

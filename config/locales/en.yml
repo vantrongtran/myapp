@@ -1,0 +1,145 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  register_success: "Welcome to Framgia E-Learning!"
+  user_not_found: "User not found!"
+  error_f: "The form contains"
+  login_fail: "Invalid email/password combination"
+  please_login: "Please login!"
+  access_denied: "Access denied!"
+  delete_success: "Delete success!"
+  delete_failed: "Delete failed!"
+  cannot_delete: "Cannot detele!"
+  update_success: "Update success!"
+  update_failed: "Update failed!"
+  create_success: "Create success!"
+  create_failed: "Create failed!"
+  category_not_found: "Category not found!"
+  not_found: "Not found!"
+  answer_must_more_one: "Answer must more one!"
+  word_must_has_correct_answer: "Word must has correct answer!"
+  follow_user: "follow user"
+  unfollow_user: "unfollow user"
+  create_lesson: "create lesson"
+  finish_lesson: "finish lesson"
+  start_lesson: "Start lesson"
+  list_words: "List words"
+  result: "Result"
+  word: "Word"
+  word_content: "Word content"
+  your_answer: "Your answer"
+  answer: "Answer"
+  lessons:
+    edit:
+      finish: "Finish"
+    show:
+      result: "Results"
+  categories:
+    index:
+      categories: "Categories"
+    category:
+      start_lesson: "Start lesson"
+  activities:
+    activity:
+      ago: "ago"
+      in_category: "in category"
+  admin:
+    users:
+      index:
+        alluser: "Users manger"
+        confirm_delete: "Are you sure?"
+        search: "Search"
+        delete: "Delete"
+    categories:
+      index:
+        allcategory: "Categories manager"
+        search: "Search"
+        word: "Words"
+        delete: "Delete"
+      new:
+        add: "Add"
+      edit:
+        edit: "Update"
+    words:
+      index:
+        allword: "Words manager"
+        delete: "Delete"
+      new:
+        add: "Add"
+      answer_fields:
+        answer_name: "Answer name"
+        is_correct: "Correct"
+      edit:
+        update: "Save changes"
+      form:
+        add: "Add"
+  layouts:
+    application:
+      framgiaELearning: "Framgia E-Learning"
+    footer:
+      content: "This is web site created in Ruby on Rails"
+    header:
+      framgiaELearning: "Framgia E-Learning"
+      home: "Home"
+      help: "Help"
+      start_lesson: "Start lesson"
+      word_list: "Word list"
+      login: "Log in"
+      setting: "Settings"
+      profile: "Profile"
+      users: "Users"
+      logout: "Logout"
+      manage: "Manager"
+      category: "Categories"
+      word: "Word"
+      search: "Enter name to search..."
+    login:
+      login: "Log in"
+      new: "New user?"
+      login: "Log in"
+      signup: "Sign up now!"
+  users:
+    new:
+      signup: "Sign up"
+    edit:
+      title: "Update your profile"
+      edit: "Edit user"
+      btn_save: "Save changes"
+    index:
+      result: "Results"
+    show:
+      activity: "Activities"
+    unfollow:
+      unfollow: "Unfollow"
+    follow:
+      follow: "Follow"
+  static_pages:
+    help:
+      help: "Help"
+      home: "Home"
+      content: "Let me know how I can help. Please contact to me!"
+      mail: "trongttv@gmail.com"
+    home:
+      home: "Home"
+      content: "Wellcome to Framgia E-Learning System!"
+      signup: "Sign up now!"

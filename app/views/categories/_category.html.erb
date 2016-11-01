@@ -1,0 +1,11 @@
+<tr>
+  <td><%= category_counter + 1 %></td>
+  <td><p><%= category.name %></p></td>
+  <td><p><%= category.description %></p></td>
+  <td><%= l category.created_at, format: :long %></td>
+  <td>
+    <%= form_for [category, @lesson] do |f| %>
+      <%= f.submit t(".start_lesson"), class: "btn btn-primary btn-sm" %>
+    <% end %>
+  </td>
+</tr>

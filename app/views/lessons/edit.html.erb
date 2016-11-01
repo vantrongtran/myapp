@@ -1,0 +1,31 @@
+<% provide :title, @lesson.category.name %>
+<div class="col-md-12" id="customer-order">
+  <div class="box">
+    <h2><%= @lesson.category.name %></h2>
+    <hr>
+    <div class="table-responsive">
+      <%= form_for [@category, @lesson] do |f_lesson| %>
+        <div class="col-lg-12">
+          <%= f_lesson.fields_for :results, @lesson.results do |f_result| %>
+            <h5>
+              <strong><%= f_result.index + 1 %>. <%= f_result.object.word.content %></strong>
+            </h5>
+            <% f_result.object.word.answers.each do |answer| %>
+              <div class="form-group col-lg-12 test">
+                <%= f_result.radio_button :answer_id, answer.id, checked: false %>
+                <%= f_result.label "answer_id_#{answer.id}", answer.content,
+                  class: "" %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-lg-12 text-center">
+          <div class="col-md-10"></div>
+          <div class="col-md-1">
+            <%= f_lesson.submit t(".finish"), class: "btn btn-primary btn-sm" %>
+          <div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

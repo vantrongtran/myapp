@@ -1,0 +1,20 @@
+<div class="modal fade login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="login">
+        <div>
+          <h2><%= t ".login" %></h2>
+          <%= form_for :session, url: login_path do |f| %>
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control" %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control" %>
+
+            <%= f.submit t ".login", class: "btn btn-primary" %>
+          <% end %>
+          <p> <%= t ".new" %><%= link_to t(".signup"), signup_path %></p>
+        </div>
+      <div>
+  </div>
+</div>
